@@ -82,7 +82,7 @@ public version: any;
         this.returnResultData = data;
         let errorData = this.returnResultData.status;
         if (errorData == 1) {
-          let returnData = await this.compareVersions(this.version, this.returnResultData.android);
+          let returnData = await this.compareVersions(this.version, this.returnResultData.ios);
           if(returnData){
             this.getAnimation();
           }
@@ -247,17 +247,17 @@ public version: any;
   }
   async checkUser(){
       let valcheckV = 0;
-      // await this.chatService.version().then(async data => {
-      //   this.returnResultData = data;
-      //   let errorData = this.returnResultData.status;
-      //   if (errorData == 1) {
-      //     let returnData = await this.compareVersions(this.version, this.returnResultData.android);
-      //     if(returnData){
-      //       this.getAnimation();
-      //       valcheckV = 1;
-      //     }
-      //   }
-      // });
+      await this.chatService.version().then(async data => {
+        this.returnResultData = data;
+        let errorData = this.returnResultData.status;
+        if (errorData == 1) {
+          let returnData = await this.compareVersions(this.version, this.returnResultData.ios);
+          if(returnData){
+            this.getAnimation();
+            valcheckV = 1;
+          }
+        }
+      });
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
       //this.navCtrl.navigateRoot("/login");
       return false;
