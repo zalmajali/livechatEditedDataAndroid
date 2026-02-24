@@ -82,7 +82,7 @@ public version: any;
         this.returnResultData = data;
         let errorData = this.returnResultData.status;
         if (errorData == 1) {
-          let returnData = await this.compareVersions(this.version, this.returnResultData.ios);
+          let returnData = await this.compareVersions(this.version, this.returnResultData.android);
           if(returnData){
             this.getAnimation();
           }
@@ -251,7 +251,7 @@ public version: any;
         this.returnResultData = data;
         let errorData = this.returnResultData.status;
         if (errorData == 1) {
-          let returnData = await this.compareVersions(this.version, this.returnResultData.ios);
+          let returnData = await this.compareVersions(this.version, this.returnResultData.android);
           if(returnData){
             this.getAnimation();
             valcheckV = 1;
